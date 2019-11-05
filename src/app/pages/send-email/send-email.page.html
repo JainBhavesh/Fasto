@@ -1,0 +1,17 @@
+<app-custom-header></app-custom-header>
+<ion-content class="ion-padding send-email-page">
+    <ion-row>
+        <ion-col size="12">
+            <ion-item class="ion-no-padding" lines="none">
+                <ion-label position="stacked" class="set-label-custom">Email Address</ion-label>
+                <ion-input type="email" #email_send></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col size="6">
+            <ion-button expand="block" size="medium" [routerDirection]="'root'" [routerLink]="['/home']">CANCEL</ion-button>
+        </ion-col>
+        <ion-col size="6">
+            <ion-button expand="block" size="medium" (click)="sendEmail(email_send?.value)">SEND</ion-button>
+        </ion-col>
+    </ion-row>
+</ion-content>

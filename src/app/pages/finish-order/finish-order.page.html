@@ -1,0 +1,30 @@
+<app-custom-header></app-custom-header>
+<ion-content class="ion-padding finish-order-page">
+    <ion-row>
+        <ion-col size="6">
+            <ion-button expand="block" size="medium" [routerDirection]="'root'" [routerLink]="['/home']">Cancel</ion-button>
+        </ion-col>
+        <ion-col size="6">
+            <ion-button expand="block" size="medium" (click)="updateRecord()">OK</ion-button>
+        </ion-col>
+        <ion-col size="12">
+            <ion-item class="ion-no-padding" lines="none">
+                <ion-label position="stacked" class="set-label-custom">Reqd. Date</ion-label>
+                <ion-datetime name="req_date" displayFormat="MM/DD/YYYY" [(ngModel)]="newOrder.reqDate"></ion-datetime>
+            </ion-item>
+        </ion-col>
+        <ion-col size="12">
+            <ion-item class="ion-no-padding" lines="none">
+                <ion-label position="stacked" class="set-label-custom">Purchase Order No.</ion-label>
+                <ion-input type="text"></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col size="12">
+            <ion-item class="ion-no-padding" lines="none">
+                <ion-label position="stacked" class="set-label-text-area">Notes</ion-label>
+                <ion-textarea [(ngModel)]="newOrder.notes" name="notes"></ion-textarea>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+
+</ion-content>

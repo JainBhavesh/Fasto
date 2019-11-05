@@ -1,0 +1,52 @@
+<app-custom-header></app-custom-header>
+
+<ion-content class="ion-padding adding-item-page">
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button (click)="scanCodePage()" color="dark">
+            <img width="30" src="../../../assets/Images/camera-scanner.png">
+        </ion-fab-button>
+    </ion-fab>
+
+    <ion-row>
+        <ion-col size="12" class="ion-no-padding">
+            <ion-button expand="block" size="medium" (click)="addItem('')">ADD..</ion-button>
+        </ion-col>
+        <ion-col size="12" class="ion-no-padding">
+            <ion-item class="ion-no-padding" lines="none">
+                <ion-label position="stacked" class=""></ion-label>
+                <ion-input class="set-input-custom barcode-select" name="barcode" [(ngModel)]="scanData" type="text" clearOnEdit="true" autofocus="true" clearInput="true" (ionBlur)="enterInput(barcode.value)" #barcode type="number"></ion-input>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+    <ion-row *ngIf="order_Data?.Details?.length == 0">
+        <ion-col size="12">
+            <h4 class="ion-no-margin">
+                There are no items on this order. Select "Add.." or scan a barcode to begin adding items.
+            </h4>
+        </ion-col>
+    </ion-row>
+    <ion-row *ngIf="order_Data?.Details?.length != 0">
+        <table class="custom-table">
+            <thead class="ion-padding">
+                <tr>
+                    <th class="ion-text-left">Item No.</th>
+                    <th class="ion-text-center">Qty</th>
+                    <th class="ion-text-center">Price</th>
+                    <th class="ion-text-right">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of order_Data?.Details">
+                    <td class="ion-text-left" (click)="addItem(item)">
+                        <span class="lblOrderNo">{{item?.ItemNumber}}</span>
+                        <br>
+                        <span>{{item?.ItemDescription}}</span>
+                    </td>
+                    <td class="ion-text-center">{{item?.Quantity}}</td>
+                    <td class="ion-text-center">{{item?.NetPrice}}</td>
+                    <td class="ion-text-right">{{item?.NetPrice * item?.Quantity | number : '1.2-2'}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </ion-row>
+</ion-content>

@@ -1,0 +1,33 @@
+<app-custom-header></app-custom-header>
+<ion-content class="ion-padding">
+    <ion-row>
+        <ion-col>
+            <p class="upload-all-text">
+                Select the orders you wish to upload or select "Upload All" to upload all orders.
+            </p>
+        </ion-col>
+    </ion-row>
+    <ion-button expand="full" (click)="upload_Order('allUpload')">Upload All</ion-button>
+    <table class="custom-table">
+        <thead class="ion-padding">
+            <tr>
+                <th class="ion-text-left">Order No.</th>
+                <th class="ion-text-right">Sub-total</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of orderDetailsData?.orders">
+                <td class="ion-text-left">
+                    <span>{{item?.OrderNo}}</span>
+                    <br>
+                    <span>{{item?.CompanyName}}</span>
+                </td>
+                <td class="ion-text-right">{{item?.SubTotal | number : '1.2-2'}}</td>
+                <td class="ion-text-center" (click)="upload_Order(item)">
+                    <ion-icon slot="icon-only" name="cloud-upload" color="dark" class="setFont-size"></ion-icon>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</ion-content>

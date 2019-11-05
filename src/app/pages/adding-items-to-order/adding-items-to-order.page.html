@@ -1,0 +1,91 @@
+<app-custom-header></app-custom-header>
+<ion-content class="ion-padding adding-item-page">
+    <form (ngSubmit)="addOrderItems()" #form="ngForm">
+        <ion-row>
+            <ion-col size="12">
+                <ion-item class="ion-no-padding" lines="none">
+                    <ion-label class="set-label-custom no-margin">Item No.</ion-label>
+                    <ngx-select-dropdown name="itemno"
+                        (change)="selectionChanged($event,'selection')"
+                        [multiple]="false" [(ngModel)]="dataModel"
+                        [config]="config" [options]="dropdownOptions"></ngx-select-dropdown>
+                    <!-- <ng-select name="itemno" [items]="dropdownOptions" bindLabel="ItemNumber" placeholder="Search Product" closeOnSelect="true" [(ngModel)]="dataModel" (change)="selectionChanged($event,'selection')" (search)="searchResult($event)"></ng-select> -->
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item class="ion-no-padding" lines="none">
+                    <ion-label position="stacked" class="set-label-custom">Price</ion-label>
+                    <ion-input type="number" currencyMask
+                        [(ngModel)]="newItem.price" step="0.01" name="price"
+                        (change)="calculate_Total($event)"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item class="ion-no-padding" lines="none">
+                    <ion-label position="stacked" class="set-label-custom">Available</ion-label>
+                    <ion-input type="text"
+                        [value]="currentItemdata?.QtyAvailToday" readonly
+                        disabled="true">
+                    </ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item class="ion-no-padding" lines="none">
+                    <ion-label position="stacked" class="set-label-custom">Quantity</ion-label>
+                    <ion-input type="number"
+                        [(ngModel)]="quantity"
+                        name="quantity"
+                        (change)="calculate_Quantity($event)"
+                        #quantity_input pattern="\d*"
+                        maxlength="5"
+                        step="1"
+                        [placeholder]="newItem.quantity"
+                        (keypress)="checkQuantity($event)">
+                    </ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <fieldset class="ion-padding">
+                    <legend>Packaging:</legend>
+                    <table class="lightGrid">
+                        <tbody>
+                            <tr>
+                                <th class="ion-text-left">Inner Pack</th>
+                                <td class="ion-text-right">
+                                    <span
+                                        id="ctl00_cphMain_frmD_ucProductPackaging_frmPackaging_lblQtyPerInnerPack">{{currentItemdata?.QtyPerInnerPack}}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="ion-text-left">Case Pack</th>
+                                <td class="ion-text-right">
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </fieldset>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item class="ion-no-padding" lines="none">
+                    <ion-label position="stacked" class="set-label-custom">Total</ion-label>
+                    <ion-input type="text" name="total" readonly disabled="true"
+                        [(ngModel)]="newItem.total" [value]="newItem?.price *
+                        quantity | number : '1.2-2'"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="4">
+                <ion-button expand="block" size="large" [disabled]="isAdd"
+                    (click)="deleteItems()"> DELETE </ion-button>
+            </ion-col>
+            <ion-col size="4">
+                <ion-button expand="block" size="large"
+                    (click)="backToItemDispPage()"> CANCEL </ion-button>
+            </ion-col>
+            <ion-col size="4">
+                <ion-button expand="block" size="large" type="submit"> OK
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </form>
+</ion-content>

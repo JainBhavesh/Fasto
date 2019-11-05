@@ -1,0 +1,57 @@
+<ion-header>
+    <ion-toolbar class="setImg">
+        <ion-title class="setHeading-font">
+            <img src="../../../assets/Images/headerImg.png">
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <ion-row>
+        <ion-col size="12">
+            <h4>Enter your 4-digit salesperson code to begin.</h4>
+        </ion-col>
+        <ion-col size="4">
+            <ion-button expand="block" class="set-custom-button" size="large" [ngClass]="{'buttonItemClicked': checkActive(1)}" (click)="login(1)">1</ion-button>
+        </ion-col>
+        <ion-col size="4">
+            <ion-button expand="block" class="set-custom-button" size="large" (click)="login(2)" [ngClass]="{'buttonItemClicked': checkActive(2)}">2</ion-button>
+        </ion-col>
+        <ion-col size="4">
+            <ion-button expand="block" class="set-custom-button" size="large" (click)="login(3)" [ngClass]="{'buttonItemClicked': checkActive(3)}">3</ion-button>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col size="4">
+            <ion-button expand="block" class="set-custom-button" size="large" (click)="login(4)" [ngClass]="{'buttonItemClicked': checkActive(4)}">4</ion-button>
+        </ion-col>
+        <ion-col size="4">
+            <ion-button expand="block" class="set-custom-button" size="large" (click)="login(5)" [ngClass]="{'buttonItemClicked': checkActive(5)}">5</ion-button>
+        </ion-col>
+        <ion-col size="4">
+            <ion-button expand="block" class="set-custom-button" size="large" (click)="login(6)" [ngClass]="{'buttonItemClicked': checkActive(6)}">6</ion-button>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col size="4">
+            <ion-button expand="block" class="set-custom-button" size="large" (click)="login(7)" [ngClass]="{'buttonItemClicked': checkActive(7)}">7</ion-button>
+        </ion-col>
+        <ion-col size="4">
+            <ion-button expand="block" class="set-custom-button" size="large" (click)="login(8)" [ngClass]="{'buttonItemClicked': checkActive(8)}">8</ion-button>
+        </ion-col>
+        <ion-col size="4">
+            <ion-button expand="block" class="set-custom-button" size="large" (click)="login(9)" [ngClass]="{'buttonItemClicked': checkActive(9)}">9</ion-button>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col size="4">
+            <ion-button expand="block" class="set-custom-button" size="large" (click)="login('*')" [ngClass]="{'buttonItemClicked': checkActive('*')}">*</ion-button>
+        </ion-col>
+        <ion-col size="4">
+            <ion-button expand="block" class="set-custom-button" size="large" (click)="login(0)" [ngClass]="{'buttonItemClicked': checkActive(0)}">0</ion-button>
+        </ion-col>
+        <ion-col size="4">
+            <ion-button expand="block" class="set-custom-button" size="large" (click)="login('#')" [ngClass]="{'buttonItemClicked': checkActive('#')}">#</ion-button>
+        </ion-col>
+    </ion-row>
+</ion-content>

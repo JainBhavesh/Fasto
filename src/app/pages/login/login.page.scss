@@ -1,0 +1,24 @@
+.setImg {
+    background-color: var(--ion-color-primary);
+    --background: url(../../../assets/Images/HeaderBack.png);
+    border-bottom: black solid 1px;
+    padding: 1%;
+    .setHeading-font {
+        padding: 0;
+        img {
+            height: 35px;
+            margin-top: 10px;
+            margin-left: 40px;
+        }
+    }
+}
+
+.set-custom-button {
+    border-color: rgb(221, 221, 221);
+    border-width: 2px;
+    border-style: outset;
+}
+
+.buttonItemClicked {
+    font-weight: 700;
+}

@@ -1,0 +1,149 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+
+/* Core CSS required for Ionic components to work properly */
+
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+@import "../node_modules/ngx-select-dropdown/dist/assets/style.css";
+@import "../node_modules/@ng-select/ng-select/themes/default.theme.css";
+@import "../node_modules/ngx-select-dropdown/dist/assets/style.css";
+.alert-button,
+.picker-button {
+    color: black !important;
+}
+
+ion-item {
+    --background-focused: none !important;
+    background: none !important;
+}
+
+.searchbar-input-container.sc-ion-searchbar-ios {
+    height: 50px !important;
+}
+
+ion-input,
+ion-textarea,
+ion-select,
+ion-datetime {
+    background-color: #ffffff;
+    color: #000 !important;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    --padding-start: 8px !important;
+    --padding-top: 10px !important;
+    --padding-end: 8px !important;
+    --padding-bottom: 10px !important;
+}
+
+.item-interactive-disabled {
+    ion-input,
+    ion-textarea,
+    ion-select,
+    ion-datetime {
+        background-color: #e6e6e6;
+    }
+}
+
+.new-order-page,
+.adding-item-page,
+.send-email-page,
+.finish-order-page {
+    ion-item {
+        --border-color: transparent;
+        margin-right: -16px;
+    }
+    .set-label-custom {
+        color: #000000 !important;
+        margin: 10px 0 !important;
+        font-weight: bold;
+        font-size: 18pt;
+        opacity: 1 !important;
+    }
+}
+
+.picker-opt.picker-opt-selected,
+.picker-prefix,
+.picker-suffix {
+    color: #db1919;
+}
+
+.alert-radio-inner.sc-ion-alert-md {
+    background-color: #db1919;
+}
+
+[aria-checked=true].sc-ion-alert-md .alert-radio-icon.sc-ion-alert-md {
+    border-color: #db1919;
+}
+
+.sc-ion-searchbar-ios-h {
+    -webkit-padding-start: 0px;
+    padding-inline-start: 0px;
+    -webkit-padding-end: 0px;
+    padding-inline-end: 5px;
+}
+
+[aria-checked=true].sc-ion-alert-ios {
+    .alert-radio-inner.sc-ion-alert-ios {
+        border-color: #db1919;
+    }
+}
+
+[aria-checked=true].sc-ion-alert-ios {
+    .alert-radio-label.sc-ion-alert-ios {
+        color: #db1919;
+    }
+}
+
+ngx-select-dropdown {
+    width: 100%;
+}
+
+.ngx-dropdown-container {
+    .ngx-dropdown-button {
+        min-height: 40px;
+        font-size: 18px;
+    }
+    .ngx-dropdown-list-container {
+        position: relative !important;
+    }
+}
+
+.ng-dropdown-panel {
+    position: relative !important;
+}
+
+ng-select {
+    width: 100%;
+}
+
+.available-items {
+    li {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 5px;
+    }
+}

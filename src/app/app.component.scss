@@ -1,0 +1,40 @@
+.loader {
+    display: none;
+    .loaderOverlay {
+        background-color: #000;
+        height: 100%;
+        left: 0px;
+        -ms-filter: "alpha(opacity=20)";
+        opacity: 0.2;
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        z-index: 100002;
+    }
+    .loaderUnderlay {
+        background: url(../assets/Images/AjaxLoader.gif) no-repeat center center;
+        height: 100%;
+        left: 0px;
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        z-index: 100001;
+    }
+}
+
+ion-menu {
+    --ion-background-color: var(--ion-color-primary);
+    --ion-text-color: var(--ion-color-primary-contrast);
+    ion-toolbar {
+        --background: var(--ion-color-primary);
+    }
+    ion-list {
+        /* optional, but it needs when you use gradient as a background color.*/
+        background: transparent;
+    }
+    .customIcon {
+        margin-right: 10px;
+        vertical-align: middle;
+        width: 30px;
+    }
+}

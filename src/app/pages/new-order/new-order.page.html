@@ -1,0 +1,112 @@
+<app-custom-header></app-custom-header>
+<ion-content class="ion-padding new-order-page">
+    <ion-row *ngIf="isUpdate === false;else showUpdate">
+        <ion-col size="6">
+            <ion-button expand="block" size="medium" [routerDirection]="'root'" [routerLink]="['/home']">Cancel
+            </ion-button>
+        </ion-col>
+        <ion-col size="6">
+            <ion-button expand="block" size="medium" (click)="addNewOrder()">OK</ion-button>
+        </ion-col>
+    </ion-row>
+    <ng-template #showUpdate>
+        <ion-row>
+            <ion-col size="6">
+                <ion-button expand="block" size="medium" (click)="deleteOrder()">DELETE</ion-button>
+            </ion-col>
+            <ion-col size="6">
+                <ion-button expand="block" size="medium" (click)="addNewOrder()">EDIT</ion-button>
+            </ion-col>
+        </ion-row>
+    </ng-template>
+    <ion-row>
+        <ion-col size="12">
+            <ion-item class="ion-no-padding" lines="none">
+                <ion-label class="set-label-custom no-margin">Customer</ion-label>
+                <ngx-select-dropdown (change)="selectionChanged($event)" [multiple]="false" [(ngModel)]="dataModel" [config]="config" [options]="dropdownOptions" (open)="openDropdown($event)"></ngx-select-dropdown>
+                <!-- <ng-select name="dataModel" [items]="dropdownOptions" dropdownPosition="bottom" bindLabel="CompanyName" bindValue="CustomerCode" closeOnSelect="true" [(ngModel)]="dataModel" (change)="selectionChanged($event)" (search)="searchResult($event)"></ng-select> -->
+            </ion-item>
+        </ion-col>
+        <ion-col size="12">
+            <ion-item class="ion-no-padding" lines="none">
+                <ion-label position="stacked" class="set-label-custom">Address</ion-label>
+                <ion-input type="text" readonly disabled="true" [value]="currentCustomerdata?.Address"></ion-input>
+            </ion-item>
+            <div *ngIf="currentCustomerdata?.Address2">
+                <ion-item class="ion-no-padding" lines="none">
+                    <ion-input type="text" readonly disabled="true" [value]="currentCustomerdata?.Address2">
+                    </ion-input>
+                </ion-item>
+                <ion-item class="ion-no-padding" lines="none">
+                    <ion-input type="text" readonly disabled="true" [value]="currentCustomerdata?.Address3">
+                    </ion-input>
+                </ion-item>
+            </div>
+        </ion-col>
+        <ion-col size="6">
+            <ion-item class="ion-no-padding" lines="none">
+                <ion-label position="stacked" class="set-label-custom">City</ion-label>
+                <ion-input type="text" readonly disabled="true" [value]="currentCustomerdata?.City"></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col size="2">
+            <ion-item class="ion-no-padding custom-height" lines="none">
+                <ion-label position="stacked"></ion-label>
+                <ion-input type="text" readonly disabled="true" [value]=""></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col size="4">
+            <ion-item class="ion-no-padding custom-height" lines="none">
+                <ion-label position="stacked"></ion-label>
+                <ion-input type="text" readonly disabled="true" [value]="currentCustomerdata?.PostalCode">
+                </ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col size="6">
+            <ion-item class="ion-no-padding" lines="none">
+                <ion-label position="stacked" class="set-label-custom">Terms</ion-label>
+                <ion-input type="text" readonly disabled="true" [value]="currentCustomerdata?.Terms"></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col size="2">
+            <ion-item class="ion-no-padding custom-height" lines="none">
+                <ion-input type="text" readonly disabled="true" [value]="currentCustomerdata?.CreditLimit">
+                </ion-input>
+                <ion-label position="stacked"></ion-label>
+            </ion-item>
+        </ion-col>
+        <ion-col size="4">
+            <ion-item class="ion-no-padding custom-height" lines="none">
+                <ion-label position="stacked"></ion-label>
+                <ion-input type="text" readonly disabled="true" [value]="currentCustomerdata?.Address ? 'Active' : ''">
+                </ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col size="12">
+            <ion-item class="ion-no-padding" lines="none">
+                <ion-label position="stacked" class="set-label-custom">Reqd. Date
+                    <ion-text color="danger"> * </ion-text>
+                </ion-label>
+                <ion-datetime name="req_date" displayFormat="MM/DD/YYYY" [(ngModel)]="newOrder.reqDate">
+                </ion-datetime>
+            </ion-item>
+        </ion-col>
+        <ion-col size="12">
+            <ion-item class="ion-no-padding" lines="none">
+                <ion-label position="stacked" class="set-label-custom">Order Type
+                    <ion-text color="danger"> * </ion-text>
+                </ion-label>
+                <ion-select interface="alert" placeholder=".." mode="ios" [(ngModel)]="newOrder.order_Type" name="order_type" (ionChange)="getOrderTypeFunc($event)">
+                    <ion-select-option *ngFor="let select_val of orderType" [value]="select_val?.OrderTypeCode">
+                        {{select_val?.Description}}</ion-select-option>
+                </ion-select>
+            </ion-item>
+        </ion-col>
+        <ion-col size="12">
+            <ion-item class="ion-no-padding" lines="none">
+                <ion-label position="stacked" class="set-label-custom">Notes</ion-label>
+                <ion-textarea [(ngModel)]="newOrder.notes" name="notes"></ion-textarea>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+</ion-content>

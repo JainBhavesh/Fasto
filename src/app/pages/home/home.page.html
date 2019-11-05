@@ -1,0 +1,12 @@
+<app-custom-header></app-custom-header>
+
+<ion-content class="ion-padding">
+    <h4 class="ion-no-margin" *ngIf="orderDetailsData == undefined || this.orderDetailsData.length == 0">{{checkTime}} {{userDetails?.DisplayName}}. There are no orders. Select 'New Order' from the application menu to begin.</h4>
+    <ion-row *ngIf="orderDetailsData?.orders?.length != 0">
+        <ion-col size="4" class="ion-text-center" *ngFor="let item of orderDetailsData?.orders" (click)="orderDetails(item)">
+            <img src="../../../assets/Images/salesOrder.png" />
+            <br>
+            <span>{{item?.OrderNo}} ({{item?.CompanyName}}  ${{item?.SubTotal | number : '1.2-2'}})</span>
+        </ion-col>
+    </ion-row>
+</ion-content>

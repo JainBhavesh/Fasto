@@ -1,0 +1,34 @@
+<app-custom-header></app-custom-header>
+<ion-content class="ion-padding">
+    <form (ngSubmit)="searchProduct(search_val?.value)">
+        <ion-row>
+            <ion-col size="9">
+                <ion-searchbar placeholder="Search Product" mode="ios" #search_val name="productsearch"></ion-searchbar>
+            </ion-col>
+            <ion-col size="3">
+                <ion-button expand="block" class="custom-search-button" type="submit">SEARCH</ion-button>
+            </ion-col>
+        </ion-row>
+    </form>
+    <ion-row>
+        <table class="custom-table" *ngIf="filterProductData?.length > 0">
+            <thead class="ion-padding">
+                <tr>
+                    <th class="ion-text-left">Item No.</th>
+                    <th class="ion-text-left">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of filterProductData | paginate: config" (click)="addItem(item)">
+                    <td class="lblOrderNo">
+                        {{item?.ItemNumber}}
+                    </td>
+                    <td>{{item?.Description}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div *ngIf="filterProductData?.length > 0">
+            <pagination-controls (pageChange)="pageChanged($event)" responsive="true" maxSize="3"></pagination-controls>
+        </div>
+    </ion-row>
+</ion-content>
