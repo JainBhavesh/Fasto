@@ -38,7 +38,7 @@
     "cordova-sqlite-storage": "^3.4.0",
     "core-js": "^2.5.4",
     "jquery": "^3.4.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "ngx-pagination": "^4.1.0",
     "ngx-select-dropdown": "^1.1.0",
     "phonegap-plugin-barcodescanner": "^8.1.0",
